@@ -1,0 +1,949 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Manrope';/*'Raleway'*/
+    /*color: #98dab4; тёмная тема#e97d01*/
+    font-weight: 900;
+}
+
+.wrap{
+    display: grid;
+    max-width: 450px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.hide{
+    display: none;
+}
+
+body{
+    /*background: #010e1f; тёмная тема*/
+    background: #fcd182;
+}
+
+.bordered{
+    /*border: 2px solid #068b49; тёмная тема*/
+    border: 3px solid #f3b771;
+    border-radius: 30px;
+}
+
+ul{
+    list-style-type: disc;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.strikethrough{
+    text-decoration: line-through;
+}
+
+#my-attack{
+    position: absolute;
+    opacity:0%;
+    top: 70px;
+    font-size: 40px;
+    color: white;
+    left: 60px;
+}
+
+#enemy-damage{
+    position: absolute;
+    opacity:0%;
+    top: 90px;
+    left:340px;
+    color: white;
+    animation-delay: 1s;
+}
+
+#enemy-attack{
+    position: absolute;
+    opacity:0%;
+    top: 70px;
+    font-size: 40px;
+    color: #6dff02;
+    left: 330px;
+    animation-delay: 1s;
+    animation-direction: reverse;
+}
+
+#my-damage{
+    position: absolute;
+    opacity:0%;
+    top: 90px;
+    left:70px;
+    color: #6dff02;
+    animation-delay: 2s;
+}
+
+.animate1{
+    animation-name: to-the-side;
+    animation-duration: 1s;
+}
+
+.animate2{
+    animation-name: up;
+    animation-duration: 1s;
+    /*animation-iteration-count: infinite;*/
+}
+
+@keyframes to-the-side {
+  0%   {opacity:100%; left:70px; }
+  100% {opacity:100%; left:330px;}
+}
+
+@keyframes up {
+  0%   {opacity:0%; top:90px;}
+  0%   {opacity:100%; top:70px;}
+  100% {opacity:0%; top:20px;}
+}
+
+#big-block {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 2000;
+	background: transparent;
+}
+
+button{
+    cursor: pointer;
+    border: 3px solid #8682bd;
+    border-radius: 6px;
+    padding: 5px;
+    background: #baafd3;
+    color: white;
+    min-width: 70px;
+    margin-top: 8px;
+}
+
+button:hover {
+    box-shadow: 0 0 5px  #799cbb;
+    text-shadow: 0 0 1px  white;
+}
+
+.interactable{
+    padding: 0;
+    border: none;
+}
+
+.interactable:hover {
+    cursor: pointer;
+}
+
+.backlight:hover {
+    box-shadow: 0 0 5px  red;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #f3e9f4;
+    color: #8682bd;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    top: -15%;
+    left: 40%;
+    font-size: 11px;
+    border: 2px solid #8682bd;
+    font-weight: 700;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 15%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #f3e9f4 transparent transparent transparent;
+}
+
+.tooltip .tooltiptext::before {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 15%;
+    margin-left: -7px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: #8682bd transparent transparent transparent;
+}
+
+.container{
+    position: relative;
+    max-width: 740px;
+    width: 100%;
+    margin: 20px auto 0px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    /*background: #131d26; тёмная тема*/
+    background: #fee2a7;
+}
+
+.display{
+    display: flex;
+    gap: 20px;
+}
+
+.display-window{
+    width: 454px;
+    height: 453.5px;
+    border: 2px solid #f3b771;
+}
+
+/*--------------------MAPS--------------------*/
+#map1{
+    position: relative;
+}
+
+#chest1{
+    position: absolute;
+    bottom: 76px;
+}
+
+#map1-map6{
+    position: absolute;
+    bottom: 208px;
+    left: 187px;
+    width: 36px;
+}
+
+#block16{
+    position: absolute;
+    bottom: 208px;
+    left: 187px;
+    width: 36px;
+}
+
+#map1-map2{
+    position: absolute;
+    bottom: 171px;
+    left: 127px;
+    width: 45px;
+}
+
+#map1-map3{
+    position: absolute;
+    bottom: 162px;
+    left: 265px;
+    width: 45px;
+}
+
+#map2{
+    position: relative;
+}
+
+#chest2{
+    position: absolute;
+    bottom: 25px;
+    left: 59px;
+}
+
+#enemy1{
+    position: absolute;
+    bottom: 150px;
+    left: 207px;
+}
+
+#map2-map1{
+    position: absolute;
+    bottom: 19px;
+    left: 200px;
+    width: 75px;
+}
+
+#map3{
+    position: relative;
+}
+
+#stick_button{
+    position: absolute;
+    bottom: 0px;
+    left: 67px;
+}
+
+#block34{
+    position: absolute;
+    bottom: 270px;
+    left: 162px;
+    width: 35px;
+}
+
+#enemy2{
+    position: absolute;
+    bottom: 113px;
+    right: 192px;
+}
+
+#map3-map4{
+    position: absolute;
+    bottom: 270px;
+    left: 162px;
+    width: 35px;
+}
+
+#map3-map1{
+    position: absolute;
+    bottom: 19px;
+    left: 200px;
+    width: 75px;
+}
+
+#map4{
+    position: relative;
+}
+
+#chest3{
+    position: absolute;
+    bottom: 186px;
+    left: 38px;
+}
+
+#chest4{
+    position: absolute;
+    bottom: 175px;
+    right: 24px;
+}
+
+#map4-map3{
+    position: absolute;
+    bottom: 19px;
+    left: 200px;
+    width: 75px;
+}
+
+#map6{
+    position: relative;
+}
+
+#cabbage-stall{
+    position: absolute;
+    bottom: 54px;
+    right: 66px;
+}
+
+#cabbage-stall2{
+    position: absolute;
+    bottom: 74px;
+    right: 93px;
+}
+
+#map6-map11{
+    position: absolute;
+    bottom: 270px;
+    left: 162px;
+    width: 35px;
+}
+
+#map6-map7{
+    position: absolute;
+    bottom: 270px;
+    left: 263px;
+    width: 35px;
+}
+
+#map6-map1{
+    position: absolute;
+    bottom: 19px;
+    left: 188px;
+    width: 75px;
+}
+
+#map7{
+    position: relative;
+}
+
+#map7-map8{
+    position: absolute;
+    bottom: 147px;
+    left: 240px;
+    width: 28px;
+}
+
+#map7-map6{
+    position: absolute;
+    bottom: 19px;
+    left: 188px;
+    width: 75px;
+}
+
+#map8{
+    position: relative;
+}
+
+#enemy3{
+    position: absolute;
+    bottom: 117px;
+    right: 108px;
+}
+
+#block89{
+    position: absolute;
+    bottom: 204px;
+    left: 359px;
+    width: 50px;
+}
+
+#map8-map7{
+    position: absolute;
+    bottom: 19px;
+    left: 188px;
+    width: 75px;
+}
+
+#map8-map10{
+    position: absolute;
+    bottom: 204px;
+    left: 85px;
+    width: 50px;
+}
+
+#map8-map9{
+    position: absolute;
+    bottom: 204px;
+    left: 359px;
+    width: 50px;
+}
+
+#map9{
+    position: relative;
+}
+
+#final_chest{
+    position: absolute;
+    left: 164px;
+    bottom: 123px;
+}
+
+#map9-map8{
+    position: absolute;
+    bottom: 19px;
+    left: 188px;
+    width: 75px;
+}
+
+#map10{
+    position: relative;
+}
+
+#chest5{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+#enemy4{
+    position: absolute;
+    bottom: 218px;
+    right: 206px;
+}
+
+#map10-map8{
+    position: absolute;
+    bottom: 26px;
+    right: 28px;
+    width: 60px;
+}
+
+#map11{
+    position: relative;
+}
+
+#block1112{
+    position: absolute;
+    bottom: 168px;
+    left: 208px;
+    width: 36px;
+}
+
+#bridge{
+    position: absolute;
+    left: 0px;
+}
+
+#map11-map12{
+    position: absolute;
+    bottom: 168px;
+    left: 208px;
+    width: 36px;
+}
+
+#map11-map6{
+    position: absolute;
+    bottom: 19px;
+    left: 188px;
+    width: 75px;
+}
+
+#map12{
+    position: relative;
+}
+
+#map12-map11{
+    position: absolute;
+    bottom: 19px;
+    left: 188px;
+    width: 75px;
+}
+
+#map12-map13{
+    position: absolute;
+    bottom: 185px;
+    left: 76px;
+    width: 50px;
+}
+
+#map12-map14{
+    position: absolute;
+    bottom: 185px;
+    right: 76px;
+    width: 50px;
+}
+
+#map13{
+    position: relative;
+}
+
+#chest6{
+    position: absolute;
+    left: 144px;
+    bottom: 61px;
+}
+
+#sword_button{
+    position: absolute;
+    left: 159px;
+    top: 57px;
+}
+
+#map13-map12{
+    position: absolute;
+    bottom: 185px;
+    right: 76px;
+    width: 50px;
+}
+
+#map14{
+    position: relative;
+}
+
+#chest7{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+#carpet{
+    position: absolute;
+    left: 100px;
+    bottom: 5px;
+}
+
+#map14-map12{
+    position: absolute;
+    bottom: 185px;
+    left: 76px;
+    width: 50px;
+}
+
+#map14-map15{
+    position: absolute;
+    bottom: 100px;
+    left: 219px;
+    width: 60px;
+}
+
+#map15{
+    position: relative;
+}
+
+#chest8{
+    position: absolute;
+    top: 224px;
+    left: 182px;
+}
+
+#final_boss{
+    position: absolute;
+    right: 132px;
+    top: 151px;
+}
+
+#map15-map14{
+    position: absolute;
+    bottom: 19px;
+    left: 184px;
+    width: 75px;
+}
+/*--------------------------------------------*/
+
+.side-bar{
+    display: flex;
+    flex-direction: column;
+    max-width: 226px;
+    width: 100%;
+    color: #b05f01;
+}
+
+.stats{
+    height: 184px;
+    /*background: #1e2d3c; тёмная тема 220*/
+    background: #ffebc7;
+    padding: 7px 13px;
+    font-size: 19px;
+}
+
+#health, #max-health{
+    color: #4bb625;
+    font-size: 21px;
+}
+
+#strength{
+    color: #d73d02;
+    font-size: 21px;
+}
+
+#defense{
+    color: #8c6590;
+    font-size: 21px;
+}
+
+#level{
+    color: #00a2e8;
+    font-size: 21px;
+}
+
+.stats-title{
+    padding: 0 0 4px 4px;
+    font-size: 23px;
+}
+
+.inventory-title{
+    margin-top: 18px;
+    padding: 0 0 4px 4px;
+    font-size: 23px;
+}
+
+.inventory{
+    align-items: center;
+    height: 180px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-direction: column;
+    /*background: #1e2d3c; тёмная тема*/
+    background: #ffebc7;
+}
+
+.text-container{
+    /*background: #1e2d3c; тёмная тема*/
+    background: #ffebc7;
+    padding: 7px 5px 7px 13px;
+    height: 100px;
+    overflow: auto;
+    border: 2px solid #f3b771;
+    color: #b05f01;
+}
+
+.scroll-bottom{
+    height: 40px;
+}
+
+.md-modal1 {
+position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    /* max-width: 630px; */
+    /* min-width: 320px; */
+    height: 100%;
+    z-index: 2000;
+    visibility: hidden;
+    backface-visibility: hidden;
+    /* transform: translateX(-50%) translateY(-50%); */
+    background: #dee0b9;
+    display: flex;
+    align-items: center;
+    border-radius: 27px;
+    border: 0px solid;
+}
+
+#start-button{
+    font-size: 30px;
+    padding: 12px 15px 14px;
+    border: 4px solid #8f993e;
+    background: #bbc27f;
+    border-radius: 14px;
+}
+
+#restart-button, #back-button{
+    margin: 10px auto;
+    display: block;
+    font-size: 17px;
+
+}
+
+#back-button a{
+    text-decoration: none;
+    color: white;
+}
+
+.md-content{
+    margin: 0 auto;
+}
+
+.md-modal {
+	position: fixed;
+	top: 35%;
+	left: 50%;
+	width: 50%;
+	max-width: 450px;
+	min-width: 320px;
+	height: auto;
+	z-index: 2000;
+	visibility: hidden;
+	backface-visibility: hidden;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.notification-content{
+    background: #f2e9f5;
+    padding: 0 10px 12px;
+    text-align: center;
+    color: #8682bd;
+    border: 4px solid #8682bd;
+}
+
+h1{
+    font-size: 25px;
+}
+
+#item-notification-item{
+    font-size: 23px;
+    color: #43ac1d;
+}
+
+#yes-button{
+    margin: 13px 15px 0 0;
+}
+
+#close-general-notification, #pay-button, #key-button{
+    margin-top: 13px;
+}
+
+.battle-content{
+    padding: 10px 10px 12px;
+    background: center / contain no-repeat url("../img/battle/versus-battle.jpg");
+    text-align: center;
+    color: #8682bd;
+    border: 4px solid #8682bd;
+    height: 261px;
+    width: 458px;
+}
+
+.battle-content h1{
+    font-size: 33px;
+    color: white;
+}
+
+.you-lost{
+    background: #f2e9f5;
+    height: auto;
+}
+
+.you-lost h1{
+    color: #8682bd;
+}
+
+.battle-window{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 0px 45px;
+}
+
+.vs-screen{
+    margin-top: 15px;
+}
+
+#attack-button{
+    position: absolute;
+    right: 0;
+    border: 3px solid #7f0808;
+    background: #d65f5f;
+    right: 33px;
+    bottom: 18px;
+}
+
+#pacify-button{
+    position: absolute;
+    right: 0;
+    top: 90%;
+    border: 3px solid #07760f;
+    background: #6ad265;
+}
+
+.my-progress-bar {
+    position: absolute;
+    width: 25%;
+    background-color: grey;
+    border-radius: 6px;
+    border: 2px solid #163500;
+    top: -4px;
+    left: 22px;
+}
+
+.enemy-progress-bar {
+    position: absolute;
+    width: 25%;
+    right: 0;
+    background-color: grey;
+    border-radius: 6px;
+    border: 2px solid #163500;
+    top: -4px;
+    right: 22px;
+}
+
+.progress {
+    width: 100%;
+    height: 20px;
+    background-color: #6dff02;
+    border-radius: 6px;
+}
+
+#battle-end-text{
+    margin: 5px;
+}
+
+.finale{
+    right: -3px;
+    position: absolute;
+}
+
+.md-show {
+	visibility: visible;
+}
+
+.md-overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	opacity: 0;
+	background: transparent;
+	transition: all 0.3s;
+}
+
+.md-show ~ .md-overlay {
+	opacity: 1;
+	visibility: visible;
+}
+
+.battle-overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	opacity: 0;
+	background: #0000006e;
+	transition: all 0.3s;
+}
+
+.md-show#battle-display ~ .battle-overlay {
+	opacity: 1;
+	visibility: visible;
+}
+
+/* Effect 1: Fade in and scale up */
+.md-effect-1 .notification-content {
+	-webkit-transform: scale(0.7);
+	-moz-transform: scale(0.7);
+	-ms-transform: scale(0.7);
+	transform: scale(0.7);
+	opacity: 0;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.5s;
+}
+
+.md-show.md-effect-1 .notification-content {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+}
+
+/* Effect 5: fall */
+.md-effect-5.md-modal {
+	-webkit-perspective: 1300px;
+	-moz-perspective: 1300px;
+	perspective: 1300px;
+}
+
+.md-effect-5 .battle-content {
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform: translateZ(600px) rotateX(20deg);
+	-moz-transform: translateZ(600px) rotateX(20deg);
+	-ms-transform: translateZ(600px) rotateX(20deg);
+	transform: translateZ(600px) rotateX(20deg);
+	opacity: 0;
+}
+
+.md-show.md-effect-5 .battle-content {
+	-webkit-transition: all 0.3s ease-in;
+	-moz-transition: all 0.3s ease-in;
+	transition: all 0.3s ease-in;
+	-webkit-transform: translateZ(0px) rotateX(0deg);
+	-moz-transform: translateZ(0px) rotateX(0deg);
+	-ms-transform: translateZ(0px) rotateX(0deg);
+	transform: translateZ(0px) rotateX(0deg);
+	opacity: 1;
+}
+
+/* Effect 11: Super scaled */
+.md-effect-11 .md-content {
+	-webkit-transform: scale(2);
+	-moz-transform: scale(2);
+	-ms-transform: scale(2);
+	transform: scale(2);
+	opacity: 0;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.5s;
+}
+
+.md-show.md-effect-11 .md-content {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+}
