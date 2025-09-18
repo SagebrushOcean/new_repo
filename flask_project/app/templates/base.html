@@ -1,27 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submission Result</title>
+    <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <!-- <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="styles.css">-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-    <style>
-    </style>-->
 </head>
 <body>
-    <h1 class="funny-title">Thank You, {{ name }}!</h1>
-    <div class="funny-form">
-        <div class="color-box"><p>Your favorite color is: <div class="color" style="background: {{ color }}"></div></p></div>
-        <p>Your profession is: {{ profession }}.</p>
-        <p>Your hobbies: {{ hobbies | join(', ') }}.</p>
-        <p>Your level: {{ level }}.</p>
-        <button class="funny-button"><a href="/">🚀 Go back to form</a></button>
-    </div>
+    <header>
+        <nav>
+            <a href="/">Главная</a>♦
+            <a href="/about">О нас</a>♦
+            <a href="/contact">Контакты</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2025 Мой Сайт</p>
+    </footer>
     <!-- <script src="script.js"></script>-->
 </body>
 </html>
